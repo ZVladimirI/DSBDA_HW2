@@ -16,3 +16,6 @@
 
 ### Listing of output files
 ![output](./output.png)
+
+### Part of result
+![result](./results.png)
