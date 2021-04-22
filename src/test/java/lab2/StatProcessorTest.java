@@ -10,6 +10,9 @@ import static lab2.StatProcessor.calculate;
 
 import java.util.*;
 
+/**
+ * Tests for Spark application
+ */
 public class StatProcessorTest {
 
     private final String case1 = "138,551,2021-04-12 09:10:00,2";
@@ -29,6 +32,9 @@ public class StatProcessorTest {
         return a;
     }
 
+    /**
+     * Case with the single log
+     */
     @Test
     public void testOneLog() {
 
@@ -42,6 +48,9 @@ public class StatProcessorTest {
         assert res.equals(trueRes);
     }
 
+    /**
+     * Case with two identical interactions with the same post
+     */
     @Test
     public void testTwoLogsSamePostSameType(){
         JavaRDD<String> input = sc.parallelize(Arrays.asList(case1, case3));
@@ -55,6 +64,10 @@ public class StatProcessorTest {
 
     }
 
+
+    /**
+     * Case with two different interactions with the same post
+     */
     @Test
     public void testTwoLogsSamePostDifferentType(){
         JavaRDD<String> input = sc.parallelize(Arrays.asList(case1, case2));
@@ -68,6 +81,9 @@ public class StatProcessorTest {
         assert res.equals(trueRes);
     }
 
+    /**
+     * Case with two identical interactions with different posts
+     */
     @Test
     public void testTwoLogsDifferentPostSameType(){
         JavaRDD<String> input = sc.parallelize(Arrays.asList(case1, case4));
@@ -81,6 +97,9 @@ public class StatProcessorTest {
         assert res.equals(trueRes);
     }
 
+    /**
+     * Case with all types above mixed
+     */
     @Test
     public void testFourLogs(){
         JavaRDD<String> input = sc.parallelize(Arrays.asList(case1, case2, case3, case4));
