@@ -1,0 +1,1 @@
+kill -15 "$(ps -ef | grep 'java' | grep -v 'grep' | awk '{ printf $1 }')"
